@@ -12,4 +12,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Archivo README con información básica.
 - Archivo CHANGELOG para registrar cambios.
 - Archivo main.py con función working() para probar la funcionalidad.
-- Archivo test_example.py con test unitarios para probar la funcionalidad.
+- Archivo test.py con test unitarios para probar la funcionalidad.
