@@ -1,6 +1,3 @@
-def working():
-    return "It's working!"
-
 from chess import Chess
 
 def main():
