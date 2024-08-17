@@ -8,6 +8,7 @@ from pieces import Pawn
 
 class Board():
     def __init__(self):
+        self.board = board_instance.display_board()
         self.__positions__ = []
         for _ in range(8):
             col = []
@@ -53,5 +54,5 @@ class Board():
                     row_display += str(piece) + " "
             print(row_display)
 
-Board = Board()
-Board.display_board()
+board_instance = Board()
+board_instance.display_board()
