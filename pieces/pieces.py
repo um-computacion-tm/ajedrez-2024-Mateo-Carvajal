@@ -6,3 +6,4 @@ class Piece:
     def is_alive(self):
         return self.__alive__
     
+
