@@ -40,9 +40,33 @@ class Board():
             self.__positions__[1][i] = Pawn("Black", True)
             self.__positions__[6][i] = Pawn("White", True)
 
-    def get_piece(self, row, col):
-        return self.__positions__ [row][col]
-    
+    def get_piece(self):
+        try:
+            row = int(input("Por favor, ingrese la fila de la pieza: "))
+            if row < 0 or row > 7:
+                print("La fila ingresada no es válida.")
+            elif row == 0:
+                print("La fila ingresada no es válida.")
+        except ValueError:
+            print("La fila ingresada no es válida.")
+            return
+            
+        try:
+            col = int(input("Por favor, ingrese la columna de la pieza: "))
+            if col < 0 or col > 7:
+                print("La columna ingresada no es válida.")
+            elif col == 0:
+                print("La columna ingresada no es válida.")
+        except ValueError:
+            print("La columna ingresada no es válida.")
+            return
+
+        consulta = self.__positions__ [row][col]
+        if consulta is not None:
+            print("Su pieza es: " + str(consulta))
+        else:
+            print("No hay ninguna pieza en esa posición.")
+
     def display_board(self):
         for i, row in enumerate(self.__positions__):
             row_display = f"{i + 1}- "
@@ -54,7 +78,6 @@ class Board():
             print(row_display)
         print("   a|b|c|d|e|f|g|h")
 
-     
-
 board_instance = Board()
-#board_instance.display_board()
+board_instance.display_board()
+board_instance.get_piece()
