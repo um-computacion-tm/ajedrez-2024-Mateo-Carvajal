@@ -35,5 +35,5 @@ class Chess:
 Ajedres = Chess()
 Ajedres.move()
 Ajedres.change_turn()
-#Ajedres.turns()
+Ajedres.turns()
 board_instance.get_piece()

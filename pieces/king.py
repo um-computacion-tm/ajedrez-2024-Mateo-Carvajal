@@ -9,6 +9,3 @@ class King(Piece):
     
     def is_alive(self):
         return self.alive
-    
-K=King("White", True)
-k=King("Black", True)
