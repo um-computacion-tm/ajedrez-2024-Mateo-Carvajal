@@ -1,6 +1,6 @@
 from chess import Chess
 from board import Board
-
+from board import Board, board_instance
 
 def main():
     turn = 1
@@ -8,17 +8,15 @@ def main():
     while True:
         play(chess)
 
+#Mueve las piezas en el tablero en base a las coordenadas ingresadas por el usuario
 def play(chess):
-    try:
-        print("turn: ", chess.turn)
-        from_row = int(input("From row: "))
-        from_col = int(input("From col: "))
-        to_row = int(input("To Row: "))
-        to_col = int(input("To Col: "))
-        # :)
-        chess.move(from_row, from_col, to_row, to_col)
-    except Exception as e:
-        print(f"An error occurred: {e}")
+    board_instance.display_board()
+    print("Ingrese fila y columna de la pieza a mover")
+    fila_1 = int(input("Fila: "))
+    columna_1 = int(input("Columna: "))
+    print("Ingrese fila y columna a donde mover la pieza")
+    fila_2 = int(input("Fila: "))
+    columna_2= int(input("Columna: "))
 
 if __name__ == "__main__":
     main()

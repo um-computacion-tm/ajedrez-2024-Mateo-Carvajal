@@ -1,9 +1,7 @@
 class Piece:
-    def __init__(self, color, is_alive):
+    def __init__(self, color, alive):
         self.color = color
-        self.__alive__ = True
+        self.alive = True
 
     def is_alive(self):
-        return self.__alive__
-    
-
+        return self.alive
