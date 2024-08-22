@@ -1,6 +1,6 @@
 class Piece:
-    def __init__(self, color, alive):
-        self.color = color
+    def __init__(self, __color__, alive):
+        self.__color__ = __color__
         self.alive = True
 
     def is_alive(self):

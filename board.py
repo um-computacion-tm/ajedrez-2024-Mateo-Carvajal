@@ -45,8 +45,6 @@ class Board():
             row = int(input("Por favor, ingrese la fila de la pieza: "))
             if row < 0 or row > 7:
                 print("La fila ingresada no es válida.")
-            elif row == 0:
-                print("La fila ingresada no es válida.")
         except ValueError:
             print("La fila ingresada no es válida.")
             return
