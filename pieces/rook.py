@@ -6,3 +6,8 @@ class Rook(Piece):
             return "♜"
         else:
             return "♖"
+        
+    def movement(self, from_row, from_col, to_row, to_col):
+        if to_row == from_row or to_col == from_col:
+            return True
+        return False

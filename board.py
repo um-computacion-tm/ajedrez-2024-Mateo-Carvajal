@@ -64,6 +64,11 @@ class Board():
             print("Su pieza es: " + str(consulta))
         else:
             print("No hay ninguna pieza en esa posición.")
+        
+
+    def get_piece(self, row, col):
+        return self.__positions__[row][col]
+    
 
     def display_board(self):
         for i, row in enumerate(self.__positions__):
@@ -76,6 +81,9 @@ class Board():
             print(row_display)
         print("   a|b|c|d|e|f|g|h")
 
+
+
 board_instance = Board()
-board_instance.display_board()
-board_instance.get_piece()
+#board_instance.display_board()
+#print(str(board_instance.display_board()))
+#board_instance.get_piece()
