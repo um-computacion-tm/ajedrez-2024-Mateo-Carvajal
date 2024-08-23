@@ -8,13 +8,17 @@ class TestBoard(unittest.TestCase):
         self.assertEqual(
             str(board),
             (
-                "♖      ♖\n"
-                "        \n"
-                "        \n"
-                "        \n"
-                "        \n"
-                "        \n"
-                "        \n"
-                "♜      ♜\n"
+                "1- ♖ ♘ ♗ ♕ ♔ ♗ ♘ ♖ "
+                "2- ♙ ♙ ♙ ♙ ♙ ♙ ♙ ♙ "
+                "3- . . . . . . . . "
+                "4- . . . . . . . . "
+                "5- . . . . . . . . "
+                "6- . . . . . . . . "
+                "7- ♟ ♟ ♟ ♟ ♟ ♟ ♟ ♟ "
+                "8- ♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜ "
+                "   a|b|c|d|e|f|g|h"
             )
         )
+
+if __name__ == '__main__':
+    unittest.main()
