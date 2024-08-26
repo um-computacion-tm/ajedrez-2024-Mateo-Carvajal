@@ -1,10 +1,4 @@
-from pieces import Rook
-from pieces import Knight
-from pieces import Bishop
-from pieces import Queen
-from pieces import King
-from pieces import Pawn
-
+from chess.pieces import Rook, Knight, Bishop, Queen, King, Pawn
 
 class Board():
     def __init__(self):
@@ -40,7 +34,7 @@ class Board():
             self.__positions__[1][i] = Pawn("Black", True)
             self.__positions__[6][i] = Pawn("White", True)
 
-    def get_piece(self):
+    def show_piece(self):
         try:
             row = int(input("Por favor, ingrese la fila de la pieza: "))
             if row < 0 or row > 7:
@@ -53,8 +47,6 @@ class Board():
             col = int(input("Por favor, ingrese la columna de la pieza: "))
             if col < 0 or col > 7:
                 print("La columna ingresada no es válida.")
-            elif col == 0:
-                print("La columna ingresada no es válida.")
         except ValueError:
             print("La columna ingresada no es válida.")
             return
@@ -64,11 +56,17 @@ class Board():
             print("Su pieza es: " + str(consulta))
         else:
             print("No hay ninguna pieza en esa posición.")
-        
 
     def get_piece(self, row, col):
-        return self.__positions__[row][col]
-    
+        consulta = self.__positions__ [row][col]
+        if consulta is not None:
+            print("Su pieza es: " + str(consulta))
+            return str(consulta)
+        else:
+            print("No hay ninguna pieza en esa posición.")
+            return None
+
+        
 
     def display_board(self):
         for i, row in enumerate(self.__positions__):
@@ -81,9 +79,19 @@ class Board():
             print(row_display)
         print("   a|b|c|d|e|f|g|h")
 
+    
+    def __str__(self):
+        board_str = ""
+        for row in self.__positions__:
+            for cell in row:
+                if cell is not None:
+                    board_str += str(cell) + " " # Agrega un espacio después de cada pieza
+                else:
+                    board_str += ". " # Agrega un punto si no hay pieza
+            board_str += "\n"
+        return board_str
 
 
-board_instance = Board()
-#board_instance.display_board()
-#print(str(board_instance.display_board()))
-#board_instance.get_piece()
+# board_instance = Board()
+# board_instance.display_board()
+# board_instance.get_piece(0,0)
