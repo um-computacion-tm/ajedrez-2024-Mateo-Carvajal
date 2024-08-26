@@ -1,15 +1,11 @@
-import sys
-import os
 import unittest
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-
-from pieces import Piece
+from chess.pieces import Piece
 
 class TestPieces(unittest.TestCase):
     def test_initialization(self):
         piece = Piece("White", True)
-        self.assertEqual(piece.color, "White")
+        self.assertEqual(piece.__color__, "White")
         self.assertTrue(piece.is_alive())
 
     def test_is_alive(self):
