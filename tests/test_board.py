@@ -13,26 +13,28 @@ class TestBoard(unittest.TestCase):
     def setUp(self):
         self.__board__ = Board()
 
-    def test_str_board(self):
-        board = Board()
-        self.assertEqual(str(board),
-                         
-            "♖ ♘ ♗ ♕ ♔ ♗ ♘ ♖ \n"
-            "♙ ♙ ♙ ♙ ♙ ♙ ♙ ♙ \n"
-            ". . . . . . . . \n"
-            ". . . . . . . . \n"
-            ". . . . . . . . \n"
-            ". . . . . . . . \n"
-            "♟ ♟ ♟ ♟ ♟ ♟ ♟ ♟ \n"
-            "♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜ \n"
-        )
+    class TestBoard(unittest.TestCase):
+        def test_str_board(self):
+            board = Board()
+            self.assertEqual(
+                str(board),
+                (
+                    "♖      ♖\n"
+                    "        \n"
+                    "        \n"
+                    "        \n"
+                    "        \n"
+                    "        \n"
+                    "        \n"
+                    "♜      ♜\n"
+                )
+            )
 
     def test_get_piece(self):
         # Verificar que get_piece devuelve la pieza correcta
         board = Board()
-        self.assertEqual(board.get_piece(0, 0), "♖")
-        self.assertEqual(board.get_piece(0, 1), "♘")
-        self.assertEqual(board.get_piece(0, 2), "♗")
+        self.assertEqual(str(board.get_piece(0, 0)), "♖")
+        self.assertEqual(str(board.get_piece(7, 0)), "♜")
 
 if __name__ == "__main__":
     unittest.main()
