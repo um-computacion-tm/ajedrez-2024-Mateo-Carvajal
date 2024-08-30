@@ -2,7 +2,7 @@ from .pieces import Piece
 
 class Pawn(Piece):
     def __str__(self):
-        return '♟' if self.__color__ == "White" else '♙'
+        return '♟' if self.__color__ == "WHITE" else '♙'
     
     def correct_movement(self, from_row, from_col, to_row, to_col):
         mov_y = abs(to_row - from_row)
@@ -22,4 +22,42 @@ class Pawn(Piece):
         else:
             mov_y != 1 or mov_x != 0
             return False
+    
+    def possible_positions_first_move_white(self, row, col):
+        possibles = []
+        for next_row in range(row - 1, 3, -1):
+            other_piece = self.__board__.get_piece(next_row, col)
+            if other_piece is None:
+                possibles.append((next_row, col))
+            else:
+                break
+        return possibles
+    
+    def possible_positions_first_move_black(self, row, col):
+        possibles = []
+        for next_row in range(row + 1, 4, 1):
+            other_piece = self.__board__.get_piece(next_row, col)
+            if other_piece is None:
+                possibles.append((next_row, col))
+            else:
+                break
+        return possibles
  
+    def possible_positions_white(self, row, col):
+        possibles = []
+        next_row = row - 1
+        if next_row >= 0:  # Se asegura que next_row este dentro del tablero
+            other_piece = self.__board__.get_piece(next_row, col)
+            if other_piece is None:
+                possibles.append((next_row, col))
+        return possibles
+    
+    def possible_positions_black(self, row, col):
+        possibles = []
+        next_row = row + 1
+        if next_row >= 0:  # Se asegura que next_row este dentro del tablero
+            other_piece = self.__board__.get_piece(next_row, col)
+            if other_piece is None:
+                possibles.append((next_row, col))
+        return possibles
+        
