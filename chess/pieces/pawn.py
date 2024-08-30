@@ -8,9 +8,6 @@ class Pawn(Piece):
         mov_y = abs(to_row - from_row)
         mov_x = abs(to_col - from_col)
         
-        #control coordenadas
-        if from_col < 0 or from_row < 0 or to_col < 0 or to_row < 0 or from_col > 7 or from_row > 7 or to_col > 7 or to_row > 7:
-            return False
         # Movimientos posibles en posicion inicial de peon
         if from_row == 1 and self.__color__ == "Black":
             if mov_y not in [1, 2] or mov_x != 0:
@@ -42,22 +39,21 @@ class Pawn(Piece):
             else:
                 break
         return possibles
+    
+    def is_within_board_and_empty(self, possibles, next_row, col):
+        if next_row >= 0:  # Se asegura que next_row esté dentro del tablero
+                other_piece = self.__board__.get_piece(next_row, col)
+                if other_piece is None:
+                    possibles.append((next_row, col))
  
     def possible_positions_white(self, row, col):
         possibles = []
         next_row = row - 1
-        if next_row >= 0:  # Se asegura que next_row este dentro del tablero
-            other_piece = self.__board__.get_piece(next_row, col)
-            if other_piece is None:
-                possibles.append((next_row, col))
+        self.is_within_board_and_empty(possibles, next_row, col)
         return possibles
     
     def possible_positions_black(self, row, col):
         possibles = []
         next_row = row + 1
-        if next_row >= 0:  # Se asegura que next_row este dentro del tablero
-            other_piece = self.__board__.get_piece(next_row, col)
-            if other_piece is None:
-                possibles.append((next_row, col))
+        self.is_within_board_and_empty(possibles, next_row, col)
         return possibles
-        

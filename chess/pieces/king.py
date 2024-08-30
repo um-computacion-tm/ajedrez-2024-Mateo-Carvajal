@@ -10,11 +10,6 @@ class King(Piece):
 
         if mov_y > 1 or mov_x > 1:
             return False
-        #control coordenadas
-        if from_col < 0 or from_row < 0 or to_col < 0 or to_row < 0 or from_col > 7 or from_row > 7 or to_col > 7 or to_row > 7:
-            return False
-        else:
-            return True
-       
+
 
 
