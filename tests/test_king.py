@@ -31,5 +31,15 @@ class TestRook(unittest.TestCase):
             [(2, 4), (2, 2)]
         )
 
+    def test_move_diagonal(self):
+        board = Board()
+        king = King("WHITE", board)
+        possibles = king.possible_positions_diagonal(2, 3)
+        self.assertEqual(
+            possibles,
+            [(3, 4), (3, 2), (1, 4), (1, 2)]
+        )
+
+
 if __name__ == "__main__":
     unittest.main()
