@@ -1,12 +1,12 @@
 import unittest
 
-from chess.board import Board
-from chess.pieces.rook import Rook
-from chess.pieces.knight import Knight
-from chess.pieces.bishop import Bishop
-from chess.pieces.queen import Queen
-from chess.pieces.king import King
-from chess.pieces.pawn import Pawn
+from game.board import Board
+from game.pieces.rook import Rook
+from game.pieces.knight import Knight
+from game.pieces.bishop import Bishop
+from game.pieces.queen import Queen
+from game.pieces.king import King
+from game.pieces.pawn import Pawn
 
 
 class TestBoard(unittest.TestCase):
