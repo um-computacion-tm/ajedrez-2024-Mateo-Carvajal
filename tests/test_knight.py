@@ -1,7 +1,7 @@
 import unittest
-from chess.pieces.knight import Knight
-from chess.board import Board
-from chess.pieces.pawn import Pawn
+from game.pieces.knight import Knight
+from game.board import Board
+from game.pieces.pawn import Pawn
 
 class TestRook(unittest.TestCase):
 
