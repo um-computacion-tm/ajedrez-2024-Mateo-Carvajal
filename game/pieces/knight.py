@@ -1,8 +1,12 @@
 from .pieces import Piece
 
 class Knight(Piece):
+    def __init__(self, color, board):
+        super().__init__(color, board)
+        self.board = board  
+    
     def __str__(self):
-        return '♞' if self.__color__ == "WHITE" else '♘'
+        return '♞' if self.color == "WHITE" else '♘'
 
     # def correct_movement(self, from_row, from_col, to_row, to_col):
     #     mov_y = abs(from_row - from_col)

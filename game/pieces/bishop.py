@@ -2,7 +2,7 @@ from .pieces import Piece
 
 class Bishop(Piece):
     def __str__(self):
-        return '♝' if self.__color__ == "WHITE" else '♗'
+        return '♝' if self.color == "WHITE" else '♗'
     
     def correct_movement(self, from_row, from_col, to_row, to_col):
         #movimiento correcto diagonal

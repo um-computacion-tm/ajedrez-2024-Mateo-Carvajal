@@ -2,10 +2,14 @@ from .pieces import Piece
 
 class King(Piece):
     def __init__(self, color, board):
-        super().__init__(color, board)
-        self.color = color
+        super().__init__(color, board)  # Initialize the color attribute using the parent class constructor
+        self.board = board  # Initialize the board attribute
+
     white_str = "♚"
     black_str = "♔"
+
+    def __str__(self):
+        return self.white_str if self.color == "WHITE" else self.black_str
 
     # def correct_movement(self, from_row, from_col, to_row, to_col):
     #     mov_y = abs(from_row - from_col)
