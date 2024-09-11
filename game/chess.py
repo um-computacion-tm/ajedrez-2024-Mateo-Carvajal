@@ -1,4 +1,11 @@
 from game.board import Board
+from exceptions import InvalidMove
+from game.pieces import Pawn
+from game.pieces import Rook
+from game.pieces import Knight
+from game.pieces import Bishop
+from game.pieces import Queen
+from game.pieces import King
 
 class Chess:
     def __init__(self):
@@ -8,24 +15,40 @@ class Chess:
     def is_playing(self):
         return True
 
-    def move(
-        self,
-        from_row,
-        from_col,
-        to_row,
-        to_col,
-    ):
-        # validate coords
+    def move(self, from_row, from_col, to_row, to_col,):
         piece = self.__board__.get_piece(from_row, from_col)
-        if piece.valid_positions(from_row, from_col, to_row, to_col):
-            raise InvalidMove()
+        piece_color = self.get_piece_color(from_row, from_col)
+        if piece is None:
+            raise InvalidMove("No piece at the source position.")
+        if piece_color != self.__turn__:
+            raise InvalidMove("It's not your turn.")
+        if (to_row, to_col) not in piece.valid_positions(from_row, from_col):
+            raise InvalidMove("Invalid move for the piece.")
+        
+        self.__board__.move_piece(from_row, from_col, to_row, to_col)
         self.change_turn()
-    @property
-    def turn(self):
+
+    def move_piece(self, from_row, from_col, to_row, to_col):
+        piece = self.__board__.get_piece(from_row, from_col)
+        self.__board__.set_piece(to_row, to_col, piece)
+        self.__board__.set_piece(from_row, from_col, None)
+    
+        if not (0 <= from_row < 8 and 0 <= from_col < 8 and 0 <= to_row < 8 and 0 <= to_col < 8):
+            raise ValueError("Posicion no válida.")
+        if piece is None:
+            raise ValueError("No hay ninguna pieza en esa posición.")
+
+    def get_turn(self):
         return self.__turn__
+    
+    def get_piece_color(self, row, col):
+        piece = self.__board__.get_piece(row, col)
+        if piece is not None:
+            return piece.color
+        return None
 
     def show_board(self):
-        return str(self.__board__)
+        self.__board__.display_board()
 
     def change_turn(self):
         if self.__turn__ == "WHITE":

@@ -2,7 +2,7 @@ from .pieces import Piece
 
 class Queen(Piece):
     def __str__(self):
-        return '♛' if self.__color__ == "White" else '♕'
+        return '♛' if self.color == "White" else '♕'
 
     def correct_movement(self, from_row, from_col, to_row, to_col):
         #movimiento correcto unidireccional
