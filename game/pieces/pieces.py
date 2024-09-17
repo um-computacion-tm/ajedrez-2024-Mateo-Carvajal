@@ -9,5 +9,5 @@ class Piece:
         else:
             return self.black_str
         
-    def is_alive(self):
-        return self.alive
+    def get_color(self):
+        return self.color

@@ -15,37 +15,28 @@ class Chess:
     def is_playing(self):
         return True
 
-    def move(self, from_row, from_col, to_row, to_col,):
-        piece = self.__board__.get_piece(from_row, from_col)
-        piece_color = self.get_piece_color(from_row, from_col)
-        if piece is None:
-            raise InvalidMove("No piece at the source position.")
-        if piece_color != self.__turn__:
-            raise InvalidMove("It's not your turn.")
-        if (to_row, to_col) not in piece.valid_positions(from_row, from_col):
-            raise InvalidMove("Invalid move for the piece.")
-        
-        self.__board__.move_piece(from_row, from_col, to_row, to_col)
-        self.change_turn()
-
     def move_piece(self, from_row, from_col, to_row, to_col):
-        piece = self.__board__.get_piece(from_row, from_col)
-        self.__board__.set_piece(to_row, to_col, piece)
-        self.__board__.set_piece(from_row, from_col, None)
-    
         if not (0 <= from_row < 8 and 0 <= from_col < 8 and 0 <= to_row < 8 and 0 <= to_col < 8):
             raise ValueError("Posicion no válida.")
+        
+        piece = self.__board__.get_piece(from_row, from_col)
         if piece is None:
             raise ValueError("No hay ninguna pieza en esa posición.")
 
+        piece_color = self.__board__.get_piece_color(from_row, from_col)
+        if piece_color != self.__turn__:
+            raise InvalidMove("No es tu turno.")
+        
+        if (to_row, to_col) not in piece.valid_positions(from_row, from_col):
+            raise InvalidMove("Movimiento invalido.")
+
+        # Move the piece only if all checks pass
+        self.__board__.set_piece(to_row, to_col, piece)
+        self.__board__.set_piece(from_row, from_col, None)
+        self.change_turn()
+        
     def get_turn(self):
         return self.__turn__
-    
-    def get_piece_color(self, row, col):
-        piece = self.__board__.get_piece(row, col)
-        if piece is not None:
-            return piece.color
-        return None
 
     def show_board(self):
         self.__board__.display_board()

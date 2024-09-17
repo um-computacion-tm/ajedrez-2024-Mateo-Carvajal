@@ -7,6 +7,9 @@ def main():
         ingame_menu(chess)
 
 def ingame_menu(chess):
+    print()
+    print("Menú de juego")
+    print("Turno: ", chess.get_turn())
     print("1. Ver tablero")
     print("2. Mover pieza")
     print("3. Salir")
@@ -25,6 +28,7 @@ def ingame_menu(chess):
 
 def play(chess):
     try:
+        print()
         chess.show_board()  # Display the board
         print("Turn: ", chess.get_turn())  # Display the current turn
         from_row = int(input("From row: "))
@@ -32,8 +36,9 @@ def play(chess):
         to_row = int(input("To Row: "))
         to_col = int(input("To Col: "))
 
-        print(f"Attempting to move from ({from_row}, {from_col}) to ({to_row}, {to_col})")
+        #print(f"Attempting to move from ({from_row}, {from_col}) to ({to_row}, {to_col})")
         chess.move_piece(from_row, from_col, to_row, to_col)
+        chess.show_board()  # Display the board
     except InvalidMove as e:
         print(f"Invalid move: {e}")
     except Exception as e:

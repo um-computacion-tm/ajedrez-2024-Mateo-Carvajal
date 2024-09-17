@@ -17,7 +17,7 @@ class Knight(Piece):
     #         return True
     #     return False
     
-    def possible_positions(self, row, col):
+    def valid_positions(self, row, col):
         possibles = []
         moves = [
             (2, 1), (2, -1), (-2, 1), (-2, -1),
@@ -28,8 +28,8 @@ class Knight(Piece):
             new_row = row + move[0]
             new_col = col + move[1]
             if 0 <= new_row < 8 and 0 <= new_col < 8:  # Ensure within board limits
-                other_piece = self.__board__.get_piece(new_row, new_col)
-                if other_piece is None or other_piece.__color__ != self.__color__:
+                other_piece = self.board.get_piece(new_row, new_col)
+                if other_piece is None or other_piece.color != self.color:
                     possibles.append((new_row, new_col))
         
         return possibles
