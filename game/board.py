@@ -59,6 +59,12 @@ class Board:
 
     def get_piece(self, row, col):
         return self.__positions__[row][col]
+    
+    def get_piece_color(self, row, col):
+        piece = self.get_piece(row, col)
+        if piece is not None:
+            return piece.get_color()
+        return None
         
     def set_piece(self, row, col, piece):
         self.__positions__[row][col] = piece
