@@ -16,7 +16,7 @@ class TestRook(unittest.TestCase):
     def test_move(self):
         board = Board()
         knight = Knight("WHITE", board)
-        possibles = knight.possible_positions(2, 3)
+        possibles = knight.valid_positions(2, 3)
         self.assertEqual(
             possibles,
             [(4, 4), (4, 2), (0, 4), (0, 2), (3, 5), (3, 1), (1, 5), (1, 1)]
@@ -27,7 +27,7 @@ class TestRook(unittest.TestCase):
         knight = Knight("WHITE", board)
         pawn = Pawn("WHITE", board)
         board.set_piece(3, 5, pawn)
-        possibles = knight.possible_positions(2, 3)
+        possibles = knight.valid_positions(2, 3)
         self.assertEqual(
             possibles,
             [(4, 4), (4, 2), (0, 4), (0, 2),(3, 1), (1, 5), (1, 1)]
