@@ -13,3 +13,6 @@ class Queen(Piece):
             return True
         else:
             return False
+        
+    def valid_positions(self, row, col):
+        ...

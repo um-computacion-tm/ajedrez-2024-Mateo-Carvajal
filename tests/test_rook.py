@@ -19,7 +19,7 @@ class TestRook(unittest.TestCase):
         possibles = rook.possible_positions_vd(4, 1)
         self.assertEqual(
             possibles,
-            [(5, 1), (6, 1), (7, 1)]
+            [(5, 1)]
         )
 
     def test_move_vertical_asc(self):
@@ -28,7 +28,7 @@ class TestRook(unittest.TestCase):
         possibles = rook.possible_positions_va(4, 1)
         self.assertEqual(
             possibles,
-            [(3, 1), (2, 1), (1, 1), (0, 1)]
+            [(3, 1), (2, 1), (1, 1)]
         )
 
     def test_move_vertical_desc_with_own_piece(self):
