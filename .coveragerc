@@ -2,7 +2,7 @@
 source = pieces, board, cli, chess  
 omit =
     venv/*
-    */test/*
+    */tests/*
     */__init__.py
 [report]
 exclude_lines =
