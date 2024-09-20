@@ -46,3 +46,6 @@ class Chess:
             self.__turn__ = "BLACK"
         else:
             self.__turn__ = "WHITE"
+    
+    def end_game(self):
+        print("Juego terminado. ¡Gracias por jugar!")
