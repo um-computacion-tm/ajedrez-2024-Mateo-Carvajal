@@ -1,5 +1,5 @@
 from game.chess import Chess
-from exceptions import InvalidMove
+from game.exceptions import ChessException, InvalidMoveException, OutOfBoundsException, TurnException, InvalidPositionException, InvalidPieceMovementException, WrongTurnException
 
 def main():
     chess = Chess()
@@ -39,7 +39,7 @@ def play(chess):
         #print(f"Attempting to move from ({from_row}, {from_col}) to ({to_row}, {to_col})")
         chess.move_piece(from_row, from_col, to_row, to_col)
         chess.show_board()  # Display the board
-    except InvalidMove as e:
+    except InvalidMoveException as e:
         print(f"Invalid move: {e}")
     except Exception as e:
         print(f"An error occurred: {e}")

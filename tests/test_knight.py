@@ -3,7 +3,7 @@ from game.pieces.knight import Knight
 from game.board import Board
 from game.pieces.pawn import Pawn
 
-class TestRook(unittest.TestCase):
+class TestKnight(unittest.TestCase):
 
     def test_str(self):
         board = Board()

@@ -1,5 +1,5 @@
 from game.board import Board
-from .exceptions import InvalidMove
+from game.exceptions import ChessException, InvalidMoveException, OutOfBoundsException, TurnException, InvalidPositionException, InvalidPieceMovementException, WrongTurnException
 from game.pieces import Pawn
 from game.pieces import Rook
 from game.pieces import Knight

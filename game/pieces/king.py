@@ -22,7 +22,8 @@ class King(Piece):
         possibles = []
         possibles += self.possible_positions_vertical(row, col)
         possibles += self.possible_positions_horizontal(row, col)
-        possibles += self.possible_positions_diagonal(row, col)
+        possibles += self.possible_positions_lower_diagonal(row, col)
+        possibles += self.possible_positions_upper_diagonal(row, col)
         return possibles        
 
     def possible_positions_vertical(self, row, col):
@@ -57,20 +58,9 @@ class King(Piece):
         
         return possibles
     
-    def possible_positions_diagonal(self, row, col):
+    def possible_positions_upper_diagonal(self, row, col):
         possibles = []
-        # comprueba la diagonal de abajo a la derecha
-        if row + 1 < 8 and col + 1 < 8:  # Se asegura que se este dentro de los limites del tablero
-            other_piece = self.board.get_piece(row + 1, col + 1)
-            if other_piece is None or other_piece.color != self.color:
-                possibles.append((row + 1, col + 1))
-        
-        # comprueba la diagonal de abajo a la izquierda
-        if row + 1 < 8 and col - 1 >= 0:  
-            other_piece = self.board.get_piece(row + 1, col - 1)
-            if other_piece is None or other_piece.color != self.color:
-                possibles.append((row + 1, col - 1))
-        
+
         # comprueba la diagonal de arriba a la derecha
         if row - 1 >= 0 and col + 1 < 8:  
             other_piece = self.board.get_piece(row - 1, col + 1)
@@ -84,3 +74,20 @@ class King(Piece):
                 possibles.append((row - 1, col - 1))
         
         return possibles
+    
+    def possible_positions_lower_diagonal(self, row, col):
+        possibles = []
+        # comprueba la diagonal de abajo a la derecha
+        if row + 1 < 8 and col + 1 < 8:  # Se asegura que se este dentro de los limites del tablero
+            other_piece = self.board.get_piece(row + 1, col + 1)
+            if other_piece is None or other_piece.color != self.color:
+                possibles.append((row + 1, col + 1))
+        
+        # comprueba la diagonal de abajo a la izquierda
+        if row + 1 < 8 and col - 1 >= 0:  
+            other_piece = self.board.get_piece(row + 1, col - 1)
+            if other_piece is None or other_piece.color != self.color:
+                possibles.append((row + 1, col - 1))
+        
+        return possibles
+    

@@ -3,7 +3,7 @@ from game.pieces.bishop import Bishop
 from game.board import Board
 from game.pieces.pawn import Pawn
 
-class TestRook(unittest.TestCase):
+class TestBishop(unittest.TestCase):
 
     def test_str(self):
         board = Board()

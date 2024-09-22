@@ -2,7 +2,7 @@ import unittest
 from game.board import Board
 from game.pieces.pawn import Pawn
 
-class Test_Pawn(unittest.TestCase):
+class TestPawn(unittest.TestCase):
 
     def test_str(self):
         board = Board()

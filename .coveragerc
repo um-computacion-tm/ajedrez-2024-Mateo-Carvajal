@@ -1,5 +1,9 @@
 [run]
-source = pieces, board, cli, chess  
+source = 
+    game.pieces
+    game.board
+    game.cli
+    game.chess
 omit =
     venv/*
     */tests/*
