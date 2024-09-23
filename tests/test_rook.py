@@ -132,6 +132,16 @@ class TestRook(unittest.TestCase):
             possibles,
             [(4, 2), (4, 1)]
         )
+    
+    def test_valid_positions(self):
+        board = Board()
+        rook = Rook("WHITE", board)
+        possibles = rook.valid_positions(4, 1)
+        self.assertEqual(
+            possibles,
+            [(5, 1), (3, 1), (2, 1), (1, 1), (4, 0), (4, 2),
+            (4, 3), (4, 4), (4, 5), (4, 6), (4, 7)]
+        )
 
 if __name__ == "__main__":
     unittest.main()
