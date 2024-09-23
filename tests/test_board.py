@@ -25,7 +25,7 @@ class TestBoard(unittest.TestCase):
                 "        \n"
                 "        \n"
                 "♟♟♟♟♟♟♟♟\n"
-                "♜♞♝♚♕♝♞♜\n"
+                "♜♞♝♚♛♝♞♜\n"
             )
         )
 
