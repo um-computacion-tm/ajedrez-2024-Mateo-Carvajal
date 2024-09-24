@@ -65,6 +65,3 @@ To start the chess game, run the following command:
 
 This project is for academic use and is developed under the rules and requirements of the Computing 2024 subject.
 
-<p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/UM_logo.png" alt="UM logo" width="150"/>
-</p>
