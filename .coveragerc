@@ -4,6 +4,7 @@ source =
     game.board
     game.cli
     game.chess
+    game.exceptions
 omit =
     venv/*
     */tests/*
