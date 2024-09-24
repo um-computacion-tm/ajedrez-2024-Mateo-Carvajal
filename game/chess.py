@@ -1,5 +1,5 @@
 from game.board import Board
-from game.exceptions import ChessException, InvalidMoveException, OutOfBoundsException, TurnException, InvalidPositionException, InvalidPieceMovementException, WrongTurnException
+from game.exceptions import ChessException, OutOfBounds, WrongTurn, InvalidPieceMovement, NoPiecesSelected
 from game.pieces import Pawn
 from game.pieces import Rook
 from game.pieces import Knight
@@ -17,18 +17,18 @@ class Chess:
 
     def move_piece(self, from_row, from_col, to_row, to_col):
         if not (0 <= from_row < 8 and 0 <= from_col < 8 and 0 <= to_row < 8 and 0 <= to_col < 8):
-            raise ValueError("Posicion no válida.")
+            raise OutOfBounds()
         
         piece = self.__board__.get_piece(from_row, from_col)
         if piece is None:
-            raise ValueError("No hay ninguna pieza en esa posición.")
+            raise NoPiecesSelected()
 
         piece_color = self.__board__.get_piece_color(from_row, from_col)
         if piece_color != self.__turn__:
-            raise InvalidMove("No es tu turno.")
+            raise WrongTurn()
         
         if (to_row, to_col) not in piece.valid_positions(from_row, from_col):
-            raise InvalidMove("Movimiento invalido.")
+            raise InvalidPieceMovement()
 
         # Move the piece only if all checks pass
         self.__board__.set_piece(to_row, to_col, piece)

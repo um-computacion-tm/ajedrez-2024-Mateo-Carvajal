@@ -1,5 +1,5 @@
 from game.chess import Chess
-from game.exceptions import ChessException, InvalidMoveException, OutOfBoundsException, TurnException, InvalidPositionException, InvalidPieceMovementException, WrongTurnException
+from game.exceptions import ChessException, OutOfBounds, WrongTurn, InvalidPieceMovement, NoPiecesSelected
 
 def main():
     chess = Chess()
