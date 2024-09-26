@@ -1,4 +1,5 @@
 from .pieces import Piece
+from .utils import gather_positions
 
 class Bishop(Piece):
     def __init__(self, color, board):
@@ -14,12 +15,13 @@ class Bishop(Piece):
             return True
         
     def valid_positions(self, from_row, from_col):
-        possibles = []
-        possibles += self.possible_positions_top_right(from_row, from_col)
-        possibles += self.possible_positions_top_left(from_row, from_col)
-        possibles += self.possible_positions_bottom_right(from_row, from_col)
-        possibles += self.possible_positions_bottom_left(from_row, from_col)
-        return possibles
+        return gather_positions(
+            from_row, from_col,
+            self.possible_positions_top_right,
+            self.possible_positions_top_left,
+            self.possible_positions_bottom_right,
+            self.possible_positions_bottom_left
+        )
         
     def possible_positions_top_right(self, row, col):
         possibles = []

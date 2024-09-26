@@ -1,4 +1,5 @@
 from .pieces import Piece
+from .utils import gather_positions
 
 class King(Piece):
     def __init__(self, color, board):
@@ -19,12 +20,13 @@ class King(Piece):
     #         return False
 
     def valid_positions(self, row, col):
-        possibles = []
-        possibles += self.possible_positions_vertical(row, col)
-        possibles += self.possible_positions_horizontal(row, col)
-        possibles += self.possible_positions_lower_diagonal(row, col)
-        possibles += self.possible_positions_upper_diagonal(row, col)
-        return possibles        
+        return gather_positions(
+            row, col,
+            self.possible_positions_vertical,
+            self.possible_positions_horizontal,
+            self.possible_positions_lower_diagonal,
+            self.possible_positions_upper_diagonal
+        )      
 
     def possible_positions_vertical(self, row, col):
         possibles = []
