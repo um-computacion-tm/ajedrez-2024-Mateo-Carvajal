@@ -6,11 +6,13 @@ from game.pieces import Knight
 from game.pieces import Bishop
 from game.pieces import Queen
 from game.pieces import King
+import pickle
 
 class Chess:
     def __init__(self):
         self.__board__ = Board()
         self.__turn__ = "WHITE"
+        self.__game_over__ = False
 
     def is_playing(self):
         return True
@@ -48,4 +50,19 @@ class Chess:
             self.__turn__ = "WHITE"
     
     def end_game(self):
+        self.__game_over__ = True
         print("Juego terminado. ¡Gracias por jugar!")
+        print()
+    
+    def save_game(self, filename="saved_game.pkl"):
+        with open(filename, "wb") as f:
+            pickle.dump(self, f)
+        print()
+        print("Juego guardado")
+        print("---------------------------------------------------------")
+        print()
+
+    @staticmethod
+    def load_game(filename="saved_game.pkl"):
+        with open(filename, "rb") as f:
+            return pickle.load(f)

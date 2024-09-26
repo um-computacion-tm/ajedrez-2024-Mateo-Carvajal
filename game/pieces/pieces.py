@@ -11,3 +11,4 @@ class Piece:
         
     def get_color(self):
         return self.color
+    
