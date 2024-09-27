@@ -51,8 +51,17 @@ class Chess:
     
     def end_game(self):
         self.__game_over__ = True
+        print("Gana el jugador", self.winner())
         print("Juego terminado. ¡Gracias por jugar!")
         print()
+
+    def winner(self):
+        if self.__game_over__:
+            if self.__turn__ == "WHITE":
+                return "BLACK"
+            else:
+                return "WHITE"
+        return None
     
     def save_game(self, filename="saved_game.pkl"):
         with open(filename, "wb") as f:

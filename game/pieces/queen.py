@@ -26,6 +26,3 @@ class Queen(Piece):
         rook_positions = self.rook.valid_positions(row, col)
         bishop_positions = self.bishop.valid_positions(row, col)
         return rook_positions + bishop_positions
-    
-  
-    
