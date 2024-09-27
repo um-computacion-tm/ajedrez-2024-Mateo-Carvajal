@@ -59,7 +59,7 @@ class TestChess(unittest.TestCase):
         chess = Chess()
         with patch('sys.stdout', new=StringIO()) as fake_out:
             chess.end_game()
-            self.assertEqual(fake_out.getvalue(), "Juego terminado. ¡Gracias por jugar!\n")
+            self.assertEqual(fake_out.getvalue(), "Gana el jugador BLACK\nJuego terminado. ¡Gracias por jugar!\n\n")
 
 if __name__ == "__main__":
     unittest.main()
