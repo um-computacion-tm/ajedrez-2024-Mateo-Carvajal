@@ -1,6 +1,7 @@
 import unittest
+import io
 from unittest.mock import patch
-from game.cli import Chess, ingame_menu, menu
+from game.cli import Chess, ingame_menu, menu, main
 
 class TestCli(unittest.TestCase):
     @patch('builtins.input', side_effect=['4'])  # Simulate user input '4' to exit
@@ -19,6 +20,24 @@ class TestCli(unittest.TestCase):
         mock_print.assert_any_call("Gracias por jugar")
         mock_print.assert_any_call("Juego terminado. ¡Gracias por jugar!")
 
+    @patch('builtins.input', side_effect=['1', '2', '6', '1', '4', '1', '4'])  # Simular entradas del usuario
+    @patch('sys.stdout', new_callable=io.StringIO)  # Capturar la salida estándar
+    def test_game_flow(self, mock_stdout, mock_input):
+        # Ejecutar el archivo cli.py
+        main()
 
+        # Capturar la salida generada
+        output = mock_stdout.getvalue()
+
+        # Verificar que se muestren los menús y el flujo correcto
+        self.assertIn("Menú Principal", output)
+        self.assertIn("1. Jugar", output)
+        self.assertIn("Menú de juego", output)
+        self.assertIn("Turno: ", output)  # Verificar que el turno sea mostrado
+        # self.assertIn("From row:", output)  # Verificar que se solicite la fila de origen
+        # self.assertIn("From col:", output)  # Verificar que se solicite la columna de origen
+        # self.assertIn("To Row:", output)  # Verificar que se solicite la fila de destino
+        # self.assertIn("To Col:", output)  # Verificar que se solicite la columna de destino
+        self.assertIn("Gracias por jugar", output)  # Verificar que al final sale del juego
 if __name__ == "__main__":
     unittest.main()

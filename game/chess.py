@@ -41,6 +41,8 @@ class Chess:
         return self.__turn__
 
     def show_board(self):
+        print()
+        print("Tablero de juego")
         self.__board__.display_board()
 
     def change_turn(self):
