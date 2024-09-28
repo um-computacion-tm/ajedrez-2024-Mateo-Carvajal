@@ -61,5 +61,17 @@ class TestChess(unittest.TestCase):
             chess.end_game()
             self.assertEqual(fake_out.getvalue(), "Gana el jugador BLACK\nJuego terminado. ¡Gracias por jugar!\n\n")
 
+    def test_winner(self):
+        chess = Chess()
+        chess.__game_over__ = True
+        self.assertEqual(chess.winner(), "BLACK")
+
+    def test_save_game(self):
+        chess = Chess()
+        with patch('builtins.open', unittest.mock.mock_open()) as mock_open:
+            chess.save_game()
+            mock_open.assert_called_once_with("saved_game.pkl", "wb")
+            mock_open().write.assert_called_once()
+
 if __name__ == "__main__":
     unittest.main()
