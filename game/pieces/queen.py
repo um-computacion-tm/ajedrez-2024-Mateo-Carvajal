@@ -5,8 +5,8 @@ from .rook import Rook
 class Queen(Piece):
     def __init__(self, color, board):
         super().__init__(color, board)
-        self.rook = Rook("WHITE", board)
-        self.bishop = Bishop("WHITE", board)
+        self.rook = Rook(color, board)  
+        self.bishop = Bishop(color, board)  
         self.__board__ = board
 
     def __str__(self):

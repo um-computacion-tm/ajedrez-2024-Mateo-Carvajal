@@ -16,9 +16,12 @@ class Chess:
 
     def is_playing(self):
         return True
+    
+    def is_in_board(self, row, col):
+        return 0 <= row < 8 and 0 <= col < 8
 
     def move_piece(self, from_row, from_col, to_row, to_col):
-        if not (0 <= from_row < 8 and 0 <= from_col < 8 and 0 <= to_row < 8 and 0 <= to_col < 8):
+        if not (self.is_in_board(from_row, from_col) and self.is_in_board(to_row, to_col)):
             raise OutOfBounds()
         
         piece = self.__board__.get_piece(from_row, from_col)
