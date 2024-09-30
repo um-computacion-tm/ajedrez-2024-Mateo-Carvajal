@@ -13,9 +13,9 @@ class Pawn(Piece):
 
     def valid_positions(self, from_row, from_col):
         if self.color == "WHITE":
-            return self.possible_positions_white(from_row, from_col)
+            return self.possible_positions_white(from_row, from_col) + self.possible_positions_capture_white(from_row, from_col)
         else:
-            return self.possible_positions_black(from_row, from_col)
+            return self.possible_positions_black(from_row, from_col) + self.possible_positions_capture_black(from_row, from_col)
     
     
     def possible_positions_white(self, row, col):
@@ -37,3 +37,25 @@ class Pawn(Piece):
             elif row + 1 >= 0 and self.board.get_piece(row + 1, col) is None:
                 possibles.append((row + 1, col))
         return possibles
+    
+    def possible_positions_capture_white(self, row, col):
+        possibles = []
+        if self.color == "WHITE":
+            piece_left = self.board.get_piece(row - 1, col - 1)
+            if piece_left is not None and piece_left.color != self.color:
+                possibles.append((row - 1, col - 1))
+            piece_right = self.board.get_piece(row - 1, col + 1)
+            if piece_right is not None and piece_right.color != self.color:
+                possibles.append((row - 1, col + 1))
+            return possibles
+        
+    def possible_positions_capture_black(self, row, col):
+        possibles = []
+        if self.color == "BLACK":
+            piece_left = self.board.get_piece(row + 1, col - 1)
+            if piece_left is not None and piece_left.color != self.color:
+                possibles.append((row + 1, col - 1))
+            piece_right = self.board.get_piece(row + 1, col + 1)
+            if piece_right is not None and piece_right.color != self.color:
+                possibles.append((row + 1, col + 1))
+            return possibles

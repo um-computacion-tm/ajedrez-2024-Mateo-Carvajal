@@ -95,6 +95,25 @@ class TestPawn(unittest.TestCase):
         self.assertEqual(
             possibles, [(2, 1), (3, 1)]
         )
+    
+    def test_possible_positions_capture_white(self):
+        board = Board()
+        board.set_piece(3, 0, Pawn("BLACK", board))
+        board.set_piece(3, 2, Pawn("BLACK", board))
+        pawn = Pawn("WHITE", board)
+        possibles = pawn.possible_positions_capture_white(4, 1)
+        self.assertEqual(
+            possibles, [(3, 0), (3, 2)]
+        )
+
+    def test_possible_positions_capture_black(self):
+        board = Board()
+        board.set_piece(2, 0, Pawn("WHITE", board))
+        board.set_piece(2, 2, Pawn("WHITE", board))
+        pawn = Pawn("BLACK", board)
+        possibles = pawn.possible_positions_capture_black(1, 1)
+        self.assertEqual(
+            possibles, [(2, 0), (2, 2)])
 
 if __name__ == '__main__':
     unittest.main()

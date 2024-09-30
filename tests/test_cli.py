@@ -9,7 +9,6 @@ class TestCli(unittest.TestCase):
     def test_ingame_menu_exit(self, mock_print, mock_input):
         chess = Chess()
         ingame_menu(chess)
-        mock_print.assert_any_call("Gracias por jugar")
         mock_print.assert_any_call("Juego terminado. ¡Gracias por jugar!")
 
     @patch('builtins.input', side_effect=['3'])  # Simulate user input '3' to exit main menu
@@ -34,10 +33,7 @@ class TestCli(unittest.TestCase):
         self.assertIn("1. Jugar", output)
         self.assertIn("Menú de juego", output)
         self.assertIn("Turno: ", output)  # Verificar que el turno sea mostrado
-        # self.assertIn("From row:", output)  # Verificar que se solicite la fila de origen
-        # self.assertIn("From col:", output)  # Verificar que se solicite la columna de origen
-        # self.assertIn("To Row:", output)  # Verificar que se solicite la fila de destino
-        # self.assertIn("To Col:", output)  # Verificar que se solicite la columna de destino
         self.assertIn("Gracias por jugar", output)  # Verificar que al final sale del juego
+
 if __name__ == "__main__":
     unittest.main()

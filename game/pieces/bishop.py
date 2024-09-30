@@ -27,7 +27,7 @@ class Bishop(Piece):
         possibles = []
         # Check the top-right diagonal
         for i in range(1, 8):
-            if row - i < 8 and col + i < 8:
+            if row - i >= 0 and col + i < 8:
                 other_piece = self.board.get_piece(row - i, col + i)
                 if other_piece is None:
                     possibles.append((row - i, col + i))
@@ -44,7 +44,7 @@ class Bishop(Piece):
         possibles = []
         # Check the top-left diagonal
         for i in range(1, 8):
-            if row - i < 8 and col - i >= 0:
+            if row - i >= 0 and col - i >= 0:
                 other_piece = self.board.get_piece(row - i, col - i)
                 if other_piece is None:
                     possibles.append((row - i, col - i))
@@ -78,7 +78,7 @@ class Bishop(Piece):
         possibles = []
         # Check the bottom-left diagonal
         for i in range(1, 8):
-            if row + i >= 0 and col - i >= 0:
+            if row + i < 8 and col - i >= 0:
                 other_piece = self.board.get_piece(row + i, col - i)
                 if other_piece is None:
                     possibles.append((row + i, col - i))

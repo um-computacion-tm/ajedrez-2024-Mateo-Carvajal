@@ -49,7 +49,6 @@ def ingame_menu(chess):
             chess.end_game()
             break
         elif option == "4":
-            print("Gracias por jugar")
             chess.end_game()
             break
         elif option == "5":
@@ -72,9 +71,10 @@ def play(chess):
         to_row = int(input("To Row: "))
         to_col = int(input("To Col: "))
 
-        #print(f"Attempting to move from ({from_row}, {from_col}) to ({to_row}, {to_col})")
+        print(f"Attempting to move from ({from_row}, {from_col}) to ({to_row}, {to_col})")
         chess.move_piece(from_row, from_col, to_row, to_col)
         chess.show_board()  # Display the board
+
     except InvalidPieceMovement as e:
         print(f"Invalid move: {e}")
     except Exception as e:

@@ -72,6 +72,15 @@ class TestChess(unittest.TestCase):
             chess.save_game()
             mock_open.assert_called_once_with("saved_game.pkl", "wb")
             mock_open().write.assert_called_once()
+    
+    def test_is_in_board(self):
+        chess = Chess()
+        self.assertTrue(chess.is_in_board(0, 0))
+        self.assertTrue(chess.is_in_board(7, 7))
+        self.assertFalse(chess.is_in_board(8, 0))
+        self.assertFalse(chess.is_in_board(0, 8))
+        self.assertFalse(chess.is_in_board(-1, 0))
+        self.assertFalse(chess.is_in_board(0, -1))
 
 if __name__ == "__main__":
     unittest.main()
