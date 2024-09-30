@@ -30,7 +30,7 @@ This Chess Project is developed as part of a college subject to demonstrate the 
 
 # **📥 Installation**
 
-To install Project Title, follow these steps:
+To install Chess Game, follow these steps:
 
 1. **Clone the repository**
     ```bash
