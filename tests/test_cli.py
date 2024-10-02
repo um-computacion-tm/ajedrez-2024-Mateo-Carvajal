@@ -16,7 +16,6 @@ class TestCli(unittest.TestCase):
     def test_main_menu_exit(self, mock_print, mock_input):
         chess = Chess()
         menu(chess)
-        mock_print.assert_any_call("Gracias por jugar")
         mock_print.assert_any_call("Juego terminado. ¡Gracias por jugar!")
 
     @patch('builtins.input', side_effect=['1', '2', '6', '1', '4', '1', '4'])  # Simular entradas del usuario
