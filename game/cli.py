@@ -1,3 +1,8 @@
+import sys
+import os
+
+# Agrega el directorio raíz del proyecto al sys.path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from game.chess import Chess
 from game.exceptions import ChessException, OutOfBounds, WrongTurn, InvalidPieceMovement, NoPiecesSelected
 
@@ -20,7 +25,6 @@ def menu(chess):
             chess = Chess.load_game()
             ingame_menu(chess)
         elif option == "3":
-            print("Gracias por jugar")
             chess.end_game()
             break
         else:
@@ -29,6 +33,7 @@ def menu(chess):
 
 def ingame_menu(chess):
     while not chess.__game_over__:
+        print("------------------------------------------------------------------------")
         print("Menú de juego")
         print("Turno: ", chess.get_turn())
         print()
@@ -49,11 +54,12 @@ def ingame_menu(chess):
             chess.end_game()
             break
         elif option == "4":
+            print()
             chess.end_game()
             break
         elif option == "5":
             print()
-            print("---------------------------------------------------------")
+            print("------------------------------------------------------------------------")
             print("Reiniciando juego")
             chess = Chess()
         elif option == "6":
