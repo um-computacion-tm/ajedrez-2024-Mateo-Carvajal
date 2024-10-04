@@ -49,5 +49,11 @@ class TestBoard(unittest.TestCase):
         board.set_piece(3, 3, rook)
         self.assertEqual(str(board.get_piece(3, 3)), "♜")
 
+    def test_has_pieces(self):
+        # Verificar que has_pieces devuelve True si hay piezas del color dado
+        board = Board()
+        self.assertTrue(board.has_pieces("WHITE"))
+        self.assertTrue(board.has_pieces("BLACK"))
+
 if __name__ == "__main__":
     unittest.main()

@@ -161,3 +161,8 @@ Añadiendo movimiento de peon
 # [0.3.0] - 2024-10-01
 ### Cambios
 Arreglando problemas de pythonpath
+
+# [0.3.1] - 2024-10-03
+### Cambios
+Arreglando problemas de tests
+Implementando cambios en cli.py

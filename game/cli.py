@@ -1,8 +1,3 @@
-import sys
-import os
-
-# Agrega el directorio raíz del proyecto al sys.path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from game.chess import Chess
 from game.exceptions import ChessException, OutOfBounds, WrongTurn, InvalidPieceMovement, NoPiecesSelected
 
@@ -13,11 +8,13 @@ def main():
 
 def menu(chess):
     while not chess.__game_over__:
-        print("Menú Principal")
-        print("1. Jugar")
-        print("2. Cargar juego")
-        print("3. Salir")
-        option = input("Ingrese una opción: ")
+        print()
+        print("--Main Menu--")
+        print("1. Play")
+        print("2. Load game")
+        print("3. Quit")
+        print()
+        option = input("Choose an option: ")
         if option == "1":
             print()
             ingame_menu(chess)
@@ -28,29 +25,40 @@ def menu(chess):
             chess.end_game()
             break
         else:
-            print("Opción no válida")
+            print("Invalid option")
 
 
 def ingame_menu(chess):
     while not chess.__game_over__:
+        # Check if the game is over
+        chess.check_game_over()
+        if chess.__game_over__:
+            chess.end_game()
+            break
+
         print("------------------------------------------------------------------------")
-        print("Menú de juego")
-        print("Turno: ", chess.get_turn())
         print()
-        print("1. Ver tablero")
-        print("2. Mover pieza")
-        print("3. Rendirse")
-        print("4. Salir")
-        print("5. Reiniciar")
-        print("6. Guardar")
-        option = input("Ingrese una opción: ")
+        print("--Game Menu--")
+        print("Turn: ", chess.get_turn())
+        print()
+        print("1. Show board")
+        print("2. Move piece")
+        print("3. Surrender")
+        print("4. Quit")
+        print("5. Restart")
+        print("6. Save game")
+        print()
+        option = input("Choose an option: ")
+
+
         if option == "1":
             chess.show_board()
         elif option == "2":
             play(chess)
         elif option == "3":
             # Placeholder for surrendering
-            print("Te has rendido")
+            print()
+            print("You surrendered!")
             chess.end_game()
             break
         elif option == "4":
@@ -60,12 +68,12 @@ def ingame_menu(chess):
         elif option == "5":
             print()
             print("------------------------------------------------------------------------")
-            print("Reiniciando juego")
+            print("Restarting game...")
             chess = Chess()
         elif option == "6":
             chess.save_game()
         else:
-            print("Opción no válida")
+            print("Invalid option")
 
 def play(chess):
     try:

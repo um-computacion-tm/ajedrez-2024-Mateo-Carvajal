@@ -9,14 +9,14 @@ class TestCli(unittest.TestCase):
     def test_ingame_menu_exit(self, mock_print, mock_input):
         chess = Chess()
         ingame_menu(chess)
-        mock_print.assert_any_call("Juego terminado. ¡Gracias por jugar!")
+        mock_print.assert_any_call("Game over. Thanks for playing!")
 
     @patch('builtins.input', side_effect=['3'])  # Simulate user input '3' to exit main menu
     @patch('builtins.print')
     def test_main_menu_exit(self, mock_print, mock_input):
         chess = Chess()
         menu(chess)
-        mock_print.assert_any_call("Juego terminado. ¡Gracias por jugar!")
+        mock_print.assert_any_call("Game over. Thanks for playing!")
 
     @patch('builtins.input', side_effect=['1', '2', '6', '1', '4', '1', '4'])  # Simular entradas del usuario
     @patch('sys.stdout', new_callable=io.StringIO)  # Capturar la salida estándar
@@ -28,11 +28,11 @@ class TestCli(unittest.TestCase):
         output = mock_stdout.getvalue()
 
         # Verificar que se muestren los menús y el flujo correcto
-        self.assertIn("Menú Principal", output)
-        self.assertIn("1. Jugar", output)
-        self.assertIn("Menú de juego", output)
-        self.assertIn("Turno: ", output)  # Verificar que el turno sea mostrado
-        self.assertIn("Gracias por jugar", output)  # Verificar que al final sale del juego
+        self.assertIn("\n--Main Menu--\n", output)
+        self.assertIn("1. Play", output)
+        self.assertIn("Main Menu", output)
+        self.assertIn("Turn: ", output)  # Verificar que el turno sea mostrado
+        self.assertIn("Game over. Thanks for playing!", output)  # Verificar que al final sale del juego
 
 if __name__ == "__main__":
     unittest.main()

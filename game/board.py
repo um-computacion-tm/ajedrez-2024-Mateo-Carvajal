@@ -90,6 +90,13 @@ class Board:
                     board_str += " "
             board_str += "\n"
         return board_str
+    
+    def has_pieces(self, color):
+        for row in self.__positions__:
+            for piece in row:
+                if piece and piece.color == color:
+                    return True
+        return False
 
 
 #board_instance = Board()
