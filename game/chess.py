@@ -45,7 +45,7 @@ class Chess:
 
     def show_board(self):
         print()
-        print("Tablero de juego")
+        print("Game board:")
         self.__board__.display_board()
 
     def change_turn(self):
@@ -53,11 +53,16 @@ class Chess:
             self.__turn__ = "BLACK"
         else:
             self.__turn__ = "WHITE"
+
+    def check_game_over(self):
+        if not self.__board__.has_pieces('WHITE') or not self.__board__.has_pieces('BLACK'):
+            self.__game_over__ = True
+            return True
     
     def end_game(self):
         self.__game_over__ = True
-        print("Gana el jugador", self.winner())
-        print("Juego terminado. ¡Gracias por jugar!")
+        print(self.winner(), "wins!")
+        print("Game over. Thanks for playing!")
         print()
 
     def winner(self):
@@ -72,8 +77,8 @@ class Chess:
         with open(filename, "wb") as f:
             pickle.dump(self, f)
         print()
-        print("Juego guardado")
-        print("---------------------------------------------------------")
+        print("The game has been saved")
+        print("------------------------------------------------------------------------")
         print()
 
     @staticmethod
