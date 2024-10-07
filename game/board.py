@@ -35,40 +35,22 @@ class Board:
             self.__positions__[1][col] = Pawn("BLACK", self)  # Black pawns
             self.__positions__[6][col] = Pawn("WHITE", self)  # White pawns
 
-    # def show_piece(self):
-    #     try:
-    #         row = int(input("Por favor, ingrese la fila de la pieza: "))
-    #         if row < 0 or row > 7:
-    #             print("La fila ingresada no es válida.")
-    #     except ValueError:
-    #         print("La fila ingresada no es válida.")
-    #         return
-    #     try:
-    #         col = int(input("Por favor, ingrese la columna de la pieza: "))
-    #         if col < 0 or col > 7:
-    #             print("La columna ingresada no es válida.")
-    #     except ValueError:
-    #         print("La columna ingresada no es válida.")
-    #         return
-        
-    #     consulta = self.__positions__ [row][col]
-    #     if consulta is not None:
-    #         print("Su pieza es: " + str(consulta))
-    #     else:
-    #         print("No hay ninguna pieza en esa posición.")
-
+    #Toma posiciones y devuelve la pieza en la posición dada
     def get_piece(self, row, col):
         return self.__positions__[row][col]
     
+    #Toma posiciones y devuelve el color de la pieza en la posición dada
     def get_piece_color(self, row, col):
         piece = self.get_piece(row, col)
         if piece is not None:
             return piece.get_color()
         return None
         
+    #Coloca una pieza en la posición dada
     def set_piece(self, row, col, piece):
         self.__positions__[row][col] = piece
 
+    #Muestra el tablero de juego
     def display_board(self):
         for i, row in enumerate(self.__positions__):
             row_display = f"{i}- "
@@ -91,14 +73,10 @@ class Board:
             board_str += "\n"
         return board_str
     
+    #Comprueba si hay piezas de un color dado
     def has_pieces(self, color):
         for row in self.__positions__:
             for piece in row:
                 if piece and piece.color == color:
                     return True
         return False
-
-
-#board_instance = Board()
-#board_instance.display_board()
-# board_instance.get_piece(0,0)
