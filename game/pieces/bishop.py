@@ -7,7 +7,7 @@ class Bishop(Piece):
 
     #Define la representación de la pieza
     def __str__(self):
-        return '♝' if self.color == "WHITE" else '♗'
+        return '♝' if self.get_color() == "WHITE" else '♗'
         
     #Devuelve una lista con todas los posibles movimientos para la pieza
     def valid_positions(self, from_row, from_col):
@@ -27,7 +27,7 @@ class Bishop(Piece):
                 other_piece = self.__board__.get_piece(row - i, col + i)
                 if other_piece is None:
                     possibles.append((row - i, col + i))
-                elif other_piece.color != self.color:
+                elif other_piece.get_color() != self.get_color():
                     possibles.append((row - i, col + i))
                     break
                 else:
@@ -44,7 +44,7 @@ class Bishop(Piece):
                 other_piece = self.__board__.get_piece(row - i, col - i)
                 if other_piece is None:
                     possibles.append((row - i, col - i))
-                elif other_piece.color != self.color:
+                elif other_piece.get_color() != self.get_color():
                     possibles.append((row - i, col - i))
                     break
                 else:
@@ -61,7 +61,7 @@ class Bishop(Piece):
                 other_piece = self.__board__.get_piece(row + i, col + i)
                 if other_piece is None:
                     possibles.append((row + i, col + i))
-                elif other_piece.color != self.color:
+                elif other_piece.get_color() != self.get_color():
                     possibles.append((row + i, col + i))
                     break
                 else:
@@ -78,7 +78,7 @@ class Bishop(Piece):
                 other_piece = self.__board__.get_piece(row + i, col - i)
                 if other_piece is None:
                     possibles.append((row + i, col - i))
-                elif other_piece.color != self.color:
+                elif other_piece.get_color() != self.get_color():
                     possibles.append((row + i, col - i))
                     break
                 else:

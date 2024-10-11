@@ -56,7 +56,6 @@ def ingame_menu(chess):
         elif option == "2":
             play(chess)
         elif option == "3":
-            # Placeholder for surrendering
             print()
             print("You surrendered!")
             chess.end_game()
@@ -78,8 +77,8 @@ def ingame_menu(chess):
 def play(chess):
     try:
         print()
-        chess.show_board()  # Display the board
-        print("Turn: ", chess.get_turn())  # Display the current turn
+        chess.show_board()  
+        print("Turn: ", chess.get_turn()) 
         from_row = int(input("From row: "))
         from_col = int(input("From col: "))
         to_row = int(input("To Row: "))
@@ -87,7 +86,7 @@ def play(chess):
 
         print(f"Attempting to move from ({from_row}, {from_col}) to ({to_row}, {to_col})")
         chess.move_piece(from_row, from_col, to_row, to_col)
-        chess.show_board()  # Display the board
+        chess.show_board()  
 
     except InvalidPieceMovement as e:
         print(f"Invalid move: {e}")

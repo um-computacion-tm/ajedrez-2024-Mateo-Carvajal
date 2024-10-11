@@ -8,7 +8,7 @@ class Rook(Piece):
 
     #Define la representación de la pieza
     def __str__(self):
-        return "♜" if self.color == "WHITE" else "♖"
+        return "♜" if self.get_color() == "WHITE" else "♖"
     
     #Devuelve una lista con todas los posibles movimientos para la pieza
     def valid_positions(self, from_row, from_col):
@@ -27,7 +27,7 @@ class Rook(Piece):
         while 0 <= current_row < 8 and 0 <= current_col < 8:
             other_piece = self.__board__.get_piece(current_row, current_col)
             if other_piece is not None:
-                if other_piece.color != self.color:
+                if other_piece.get_color() != self.get_color():
                     possibles.append((current_row, current_col))
                 break
             possibles.append((current_row, current_col))

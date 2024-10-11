@@ -77,6 +77,6 @@ class Board:
     def has_pieces(self, color):
         for row in self.__positions__:
             for piece in row:
-                if piece and piece.color == color:
+                if piece and piece.get_color() == color:
                     return True
         return False

@@ -1,10 +1,7 @@
 [run]
 source = 
-    game.pieces
-    game.board
-    game.cli
-    game.chess
-    game.exceptions
+    game
+    tests
 omit =
     venv/*
     */tests/*

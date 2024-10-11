@@ -166,3 +166,8 @@ Arreglando problemas de pythonpath
 ### Cambios
 Arreglando problemas de tests
 Implementando cambios en cli.py
+
+# [0.3.2] - 2024-10-10
+### Cambios
+Subiendo proyecto terminado
+Se añadio el archivo saved_game.pkl para probar el cargado del juego
