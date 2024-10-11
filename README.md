@@ -55,8 +55,7 @@ To install Chess Game, follow these steps:
 To start the chess game, run the following command:
 
 ## Command line mode:
-
-    ```bash
+    ```
     python3 -m game.cli
     ```
 
