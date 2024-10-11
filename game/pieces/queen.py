@@ -10,7 +10,7 @@ class Queen(Piece):
 
     #Define la representación de la pieza
     def __str__(self):
-        return '♛' if self.color == "WHITE" else '♕'
+        return '♛' if self.get_color() == "WHITE" else '♕'
 
     #Devuelve una lista con todas los posibles movimientos para la pieza        
     def valid_positions(self, row, col):

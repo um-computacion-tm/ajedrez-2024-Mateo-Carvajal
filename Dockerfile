@@ -8,8 +8,8 @@ WORKDIR /ajedrez-2024-Mateo-Carvajal
 
 RUN pip install -r requirements.txt
 
-CMD ["sh", "-c", "coverage run -m unittest && coverage report -m && python main.py"]
+CMD ["sh", "-c", "coverage run -m unittest && coverage report -m && python3 -m game.cli"]
 
-# docker buildx build -t ajedrez-2024-Mateo-Carvajal .
-# docker run -i ajedrez-2024-Mateo-Carvajal
+# docker buildx build -t ajedrez-2024-mateo-carvajal .
+# docker run -i ajedrez-2024-mateo-carvajal
 
