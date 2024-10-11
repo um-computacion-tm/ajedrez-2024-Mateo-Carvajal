@@ -57,7 +57,7 @@ To start the chess game, run the following command:
 ## Command line mode:
 
     ```bash
-    python game/cli.py
+    python3 -m game.cli
     ```
 
 
