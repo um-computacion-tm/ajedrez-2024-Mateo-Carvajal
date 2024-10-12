@@ -92,6 +92,9 @@ class Chess:
 
     @staticmethod
     def load_game(filename="saved_game.pkl"):
-        with open(filename, "rb") as f:
-            return pickle.load(f)
-        
+        try:
+            with open(filename, "rb") as f:
+                return pickle.load(f)
+        except FileNotFoundError:
+            print(f"{filename} not found. Creating a new game instead.")
+            return Chess()
