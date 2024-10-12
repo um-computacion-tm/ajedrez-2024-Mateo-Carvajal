@@ -10,7 +10,6 @@ class Board:
             self.__positions__.append(col)
         if not for_test:
             self.__positions__[0][0] = Rook("BLACK", self) 
-            print(f"Added Rook at (0,0) with color: {self.__positions__[0][0].get_color()}")
             self.__positions__[0][1] = Knight("BLACK", self)
             self.__positions__[0][2] = Bishop("BLACK", self)
             self.__positions__[0][3] = Queen("BLACK", self)
@@ -27,7 +26,6 @@ class Board:
             self.__positions__[7][2] = Bishop("WHITE", self)
             self.__positions__[7][1] = Knight("WHITE", self)
             self.__positions__[7][0] = Rook("WHITE", self) 
-            print(f"Added Rook at (7,0) with color: {self.__positions__[7][0].get_color()}")
 
             self.initialize_pawns()
 
