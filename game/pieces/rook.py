@@ -8,7 +8,7 @@ class Rook(Piece):
 
     #Define la representación de la pieza
     def __str__(self):
-        return "♜" if self.get_color() == "WHITE" else "♖"
+        return self.white_str if self.get_color() == "WHITE" else self.black_str
     
     #Devuelve una lista con todas los posibles movimientos para la pieza
     def valid_positions(self, from_row, from_col):

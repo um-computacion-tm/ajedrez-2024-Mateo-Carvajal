@@ -94,3 +94,4 @@ class Chess:
     def load_game(filename="saved_game.pkl"):
         with open(filename, "rb") as f:
             return pickle.load(f)
+        
