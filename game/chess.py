@@ -96,5 +96,5 @@ class Chess:
             with open(filename, "rb") as f:
                 return pickle.load(f)
         except FileNotFoundError:
-            print(f"{filename} not found. Creating a new game instead.")
+            print("Saved game not found, you have to save a game first. Creating new game instead.")
             return Chess()
